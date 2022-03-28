@@ -39,14 +39,20 @@ const promptUser = () => {
       }
     },
     {
+      type: 'confirm',
+      name: 'confirmAboutsad',
+      message: 'Would you like to enter some information about yourself for an "About" section?',
+      default: true
+    },
+    {
       type: 'input',
       name: 'about',
       message: 'Provide some information about yourself:',
-      validate: nameInput => {
-        if(nameInput){
+      when: ({ confirmAbout }) => { // this when means that this response will be called only whenever the if the confirmAbout is true
+        if (confirmAbout) {
           return true;
-        }else{
-          console.log('please enter your informations');
+        } else {
+          return false;
         }
       }
     }
