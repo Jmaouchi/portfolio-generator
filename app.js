@@ -1,6 +1,6 @@
-const fs = require('fs');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template'); // in our page-template.js the parametre is templateData but here its portfolio data
+const { writeFile, copyFile } = require('./utils/generate-site');
 
 const promptUser = () => {
   return inquirer.prompt([
@@ -129,12 +129,21 @@ Add a New Project
 
 promptUser()
   .then(promptProject)
-  .then( dataResponse => { // portfolio data is the data we are getting from the prompts
-    const pageHTML = generatePage(dataResponse);
-    // console.log(dataResponsea);
-    fs.writeFile('./index.html', pageHTML, err => {
-      if (err) throw new Error(err);
-
-      console.log('Page created! Check out index.html in this directory to see it!');
-    });
+  .then(dataResponse => { // dataResponse data is the data we are getting from the prompts
+    console.log('data response is',dataResponse);
+    return generatePage(dataResponse); // then the data we are getting from the prompts will run this function
+  })
+  .then(pageHTML => { // then whenevr we will get all the data that did ran on the generatePage function, we will write it with the writeFiel function
+    return writeFile(pageHTML); // the writeFile is coming from the generate-site.js file since we exported it
+  })
+  .then(writeFileResponse => {
+    console.log('the style is:', writeFileResponse);
+    return copyFile(); //the copyFile is coming from the generate-site.js file since we exported it
+  })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+  .catch(err => {
+    console.log(err);
   });
+// Seems easier to follow
