@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template'); // in our page-template.js the parametre is templateData but here its portfolio data
+console.log('generated page is herer', generatePage);
 const { writeFile, copyFile } = require('./utils/generate-site');
+
 
 const promptUser = () => {
   return inquirer.prompt([
@@ -147,3 +149,9 @@ promptUser()
     console.log(err);
   });
 // Seems easier to follow
+
+
+
+
+
+
