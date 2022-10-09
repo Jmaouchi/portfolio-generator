@@ -4,6 +4,7 @@
 * This is a node application which will build a professional portfolio for a user based on their inputs
 * This project was built based on a need to represent work and projects in a clean web page format
 
+# Table of content 
 
 * [Title](#title)
 * [Summary](#summary)
