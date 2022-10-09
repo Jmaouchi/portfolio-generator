@@ -5,14 +5,12 @@
 * This project was built based on a need to represent work and projects in a clean web page format
 
 
-## Table of Contents
-### Installation
-### Usage
-### License
-### Contributors
-### Tests
-### Questions
-### Screenshot of an example portfolio
+* [Title](#title)
+* [Summary](#summary)
+* [Built](#Technology)
+* [Instalation](#header.instal)
+* [Usage](header.usage)
+* [Contribution](#header.contribution)
 
 # Installation
 * Step 1: Since this application uses server side functionality, you must initialize NPM, and then install the NPM package known as inquirer. See further instruction in the following steps
